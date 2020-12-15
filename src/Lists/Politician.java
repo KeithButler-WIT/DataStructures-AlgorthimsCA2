@@ -13,7 +13,7 @@ public class Politician {
     public Politician(String name,String dateOfBirth,String party,String homeCounty,String image) {
         this.name=Utilities.max40Chars(name);
         this.dateOfBirth=dateOfBirth;
-        this.party = (Utilities.validParty(party)) ? party:"Independent";
+        this.party = (Utilities.validParty(party)) ? Utilities.toProperCase(party):"Independent";
         this.homeCounty=Utilities.toProperCase(homeCounty);
         this.image=image;
     }

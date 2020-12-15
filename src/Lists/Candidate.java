@@ -9,6 +9,13 @@ public class Candidate {
     public Candidate(int totalVotes, String previousParty){
         this.totalVotes=totalVotes;
         this.previousParty=previousParty;
+    }
 
+    @Override
+    public String toString() {
+        return "Candidate{" +
+                "totalVotes=" + totalVotes +
+                ", previousParty='" + previousParty + '\'' +
+                '}';
     }
 }

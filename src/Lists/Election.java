@@ -17,4 +17,13 @@ public class Election {
         this.seatsWon= Utilities.onlyContainsNumbers(seatsWon);
     }
 
+    @Override
+    public String toString() {
+        return "Election{" +
+                "type='" + type + '\'' +
+                ", location='" + location + '\'' +
+                ", date='" + date + '\'' +
+                ", seatsWon='" + seatsWon + '\'' +
+                '}';
+    }
 }

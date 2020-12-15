@@ -47,9 +47,12 @@ public class Utilities {
 
     }
 
+    // Capitalises the first letter in the first and second word. every other letter is lowercase
     public static String toProperCase(String s) {
         return s.substring(0, 1).toUpperCase() +
-                s.substring(1).toLowerCase();
+                s.substring(1,s.indexOf(' ')-1).toLowerCase() +
+                s.substring(s.indexOf(' ')-1,s.indexOf(' ')).toUpperCase() +
+                s.substring(s.indexOf(' ')+1).toLowerCase();
     }
 
     public static int readNextInt(String prompt) {
