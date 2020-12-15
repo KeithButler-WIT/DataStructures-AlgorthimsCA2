@@ -2,7 +2,7 @@ package Lists;
 
 import javafx.beans.property.StringProperty;
 
-public class Candidate {
+public class Candidate<C> {
     private int totalVotes; // Total votes they got
     private String previousParty; // Any past party associations
 
