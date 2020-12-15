@@ -17,6 +17,8 @@ public class Election {
         this.seatsWon= Utilities.onlyContainsNumbers(seatsWon);
     }
 
+    //---Methods---//
+
     @Override
     public String toString() {
         return "Election{" +
@@ -28,7 +30,6 @@ public class Election {
     }
 
     //---Setters & Getters---//
-
 
     public String getType() {
         return type;

@@ -18,6 +18,8 @@ public class Politician {
         this.image=image;
     }
 
+    //---Methods---//
+
     @Override
     public String toString() {
         return "Politician{" +
@@ -30,7 +32,6 @@ public class Politician {
     }
 
     //---Setters & Getters---//
-
 
     public String getName() {
         return name;
