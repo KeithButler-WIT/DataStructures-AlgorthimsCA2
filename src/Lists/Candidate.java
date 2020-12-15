@@ -18,4 +18,23 @@ public class Candidate {
                 ", previousParty='" + previousParty + '\'' +
                 '}';
     }
+
+    //---Setters & Getters---//
+
+
+    public int getTotalVotes() {
+        return totalVotes;
+    }
+
+    public void setTotalVotes(int totalVotes) {
+        this.totalVotes = totalVotes;
+    }
+
+    public String getPreviousParty() {
+        return previousParty;
+    }
+
+    public void setPreviousParty(String previousParty) {
+        this.previousParty = previousParty;
+    }
 }

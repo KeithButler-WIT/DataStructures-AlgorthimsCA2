@@ -29,5 +29,46 @@ public class Politician {
                 '}';
     }
 
+    //---Setters & Getters---//
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = Utilities.max40Chars(name);
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getParty() {
+        return party;
+    }
+
+    public void setParty(String party) {
+        this.party = (Utilities.validParty(party)) ? Utilities.toProperCase(party): this.party;
+    }
+
+    public String getHomeCounty() {
+        return homeCounty;
+    }
+
+    public void setHomeCounty(String homeCounty) {
+        this.homeCounty = Utilities.toProperCase(homeCounty);
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
