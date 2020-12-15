@@ -2,7 +2,7 @@ package Lists;
 
 import utility.Utilities;
 
-public class Election {
+public class Election<E> {
     private String type, // E.g. General, Local, European
             location, // E.g. County for local
             date, // Date/year taking place

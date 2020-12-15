@@ -106,28 +106,4 @@ public class CandidateList<C> {
         return size()==0;
     }
 
-    // TODO: implement save/load
-//    /**
-//     * loads the employees from a .xml file
-//     */
-//    @SuppressWarnings("unchecked")
-//    public void load() throws Exception
-//    {
-//        XStream xstream = new XStream(new DomDriver());
-//        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("warehouse.xml"));
-//        head = (FloorNode<F>) is.readObject();
-//        is.close();
-//    }
-//
-//    /**
-//     * saves the employees to a .xml file
-//     */
-//    public void save() throws Exception
-//    {
-//        XStream xstream = new XStream(new DomDriver());
-//        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("warehouse.xml"));
-//        out.writeObject(head);
-//        out.close();
-//    }
-
 }
