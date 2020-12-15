@@ -43,10 +43,8 @@ public class Utilities {
 
     public static boolean validParty(String party){
         party=party.toLowerCase();
-        if(party.equals("finna fail") || party.equals("sinn fein") || party.equals("fine gael") || party.equals("green party") || party.equals("labour party"))
-            return true;
-        else
-            return false;
+        return (party.equals("finna fail") || party.equals("sinn fein") || party.equals("fine gael") || party.equals("green party") || party.equals("labour party"));
+
     }
 
     public static String toProperCase(String s) {
