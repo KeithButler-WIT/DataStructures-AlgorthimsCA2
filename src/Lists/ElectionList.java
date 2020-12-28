@@ -4,6 +4,7 @@ public class ElectionList<E> {
     public ElectionNode<E> head,tail;
 
     public class ElectionNode<E> {
+        // Todo: implement previous variable
         public ElectionNode<E> next, previous;  //points to next node
         private Election<E> contents; //stores the actual object in the contents field
 //        private CandidateList<C> candidate=new CandidateList<>();
