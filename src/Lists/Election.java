@@ -3,7 +3,6 @@ package Lists;
 import utility.Utilities;
 
 public class Election<E> {
-    // test to see if commits
     private String type, // E.g. General, Local, European
             location, // E.g. County for local
             date, // Date/year taking place
