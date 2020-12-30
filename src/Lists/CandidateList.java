@@ -11,6 +11,7 @@ public class CandidateList<C> {
         public Candidate<C> getContents() { return contents; }
         public void setContents(Candidate<C> c) { contents=c; }
 
+        //Fixme: this needs to be changed
 //        public CandidateList<C> getCandidate() {
 //            return candidate;
 //        }
