@@ -19,7 +19,7 @@ public class CandidateList<C> {
         //---politician Methods---//
 
         //Adds an politician to the PoliticianList
-        public void addCandidate(String name,String dateOfBirth,String party,String homeCounty,String image){
+        public void addPolitician(String name,String dateOfBirth,String party,String homeCounty,String image){
             politician.addElement(new Politician(name,dateOfBirth,party,homeCounty,image));
         }
     }
