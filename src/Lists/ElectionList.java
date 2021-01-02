@@ -136,6 +136,24 @@ public class ElectionList<E> {
         return size()==0;
     }
 
+    public  String printList()
+    {
+        ElectionNode<E> currNode = head;
+        String fullList = "LinkedList: \n";
+
+        if(currNode==null)
+            fullList="Empty List.";
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            fullList += currNode.getContents();
+
+            // Go to next node
+            currNode = currNode.next;
+        }
+        return fullList;
+    }
+
     // TODO: implement save/load
     /**
      * loads the election from a .xml file
