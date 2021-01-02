@@ -20,7 +20,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Election");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
@@ -287,4 +287,32 @@ public class Main extends Application {
 //        int slfIndex = Utilities.readNextInt("Input the Shelf index you want to view: ");
 //        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
 //    }
+
+    //Todo: change variable names to work with current list
+    public static void bubbleSort(int[] a){
+        for(int b=1;b<a.length;b++){
+            for(int i=0;i<a.length-b;i++){
+
+                if(a[i]>a[i+1]){
+                    int swap=a[i];
+                    a[i]=a[i+1];
+                    a[i+1]=swap;
+                }
+            }
+        }
+    }
+    public static void bubbleSort(ElectionList a){
+        for(int b=1;b<a.size();b++){
+            for(int i=0;i<a.size()-b;i++){
+
+                if(a.getObjectAtIndex(i)>a.getObjectAtIndex(i+1){
+                    ElectionList swap=a.getObjectAtIndex(i);
+                    a[i]=a[i+1];
+                    a[i+1]=swap;
+                }
+            }
+        }
+    }
+
+
 }
