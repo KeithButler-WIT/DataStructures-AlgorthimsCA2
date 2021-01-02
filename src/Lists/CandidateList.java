@@ -25,7 +25,7 @@ public class CandidateList<C> {
     }
 
     //TODO: implement tail variable
-    public void addElement(C e) { //Add element to head of list
+    public void addElement(Candidate<C> e) { //Add element to head of list
         CandidateNode<C> nn = new CandidateNode<C>(); //create a new node
         nn.setContents(e); //add the object to the contents
         nn.next=head; //make the nodes next point to what the head of the list is currently pointing to
@@ -47,7 +47,7 @@ public class CandidateList<C> {
         if(isEmpty())
             return "No Candidates present";
         for(int i=0;i<=size();i++) {
-            str+=getObjectAtIndex(i).getContents().getType();
+            str+=getObjectAtIndex(i).getContents().getTotalVotes();
         }
         return str;
     }
@@ -63,7 +63,7 @@ public class CandidateList<C> {
     }
 
     //Returns location of object in list as int
-    public int getIndex(C obj){
+    public int getIndex(Candidate<C> obj){
         CandidateNode<C> temp=head;
         int i=0;
         while (temp!=null){
@@ -90,7 +90,7 @@ public class CandidateList<C> {
     }
 
     //TODO: implement tail variable
-    public void insertNext(C obj) { //Appends new object to end on list of objects
+    public void insertNext(Candidate<C> obj) { //Appends new object to end on list of objects
         CandidateNode<C> nn = new CandidateNode<C>(); //create a new node
         nn.setContents(obj); //add the object to the contents
         if(head==null)

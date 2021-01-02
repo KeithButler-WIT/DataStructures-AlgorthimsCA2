@@ -17,14 +17,14 @@ public class PoliticianList {
     // Todo: add fancy methods that do fancy things
 
     //TODO: implement tail variable
-    public void addElement(Politician e) { //Add element to head of list
+    public void addElement(Politician<P> e) { //Add element to head of list
         PoliticianNode<P> nn = new PoliticianNode<P>(); //create a new node
         nn.setContents(e); //add the object to the contents
         nn.next=head; //make the nodes next point to what the head of the list is currently pointing to
         head=nn; //change the head so that it is now pointing to the newly created node
     }
 
-    public void addLast(Politician e){
+    public void addLast(Politician<P> e){
         if(size()==0) {
             head=tail=new PoliticianNode<P>();
         }
@@ -55,7 +55,7 @@ public class PoliticianList {
     }
 
     //Returns location of object in list as int
-    public int getIndex(P obj){
+    public int getIndex(Politician<P> obj){
         PoliticianNode<P> temp=head;
         int i=0;
         while (temp!=null){
@@ -82,7 +82,7 @@ public class PoliticianList {
     }
 
     //TODO: implement tail variable
-    public void insertNext(Politician obj) { //Appends new object to end on list of objects
+    public void insertNext(Politician<P> obj) { //Appends new object to end on list of objects
         PoliticianNode<P> nn = new PoliticianNode<P>(); //create a new node
         nn.setContents(obj); //add the object to the contents
         if(head==null)
