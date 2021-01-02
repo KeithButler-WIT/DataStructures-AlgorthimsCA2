@@ -32,24 +32,23 @@ public class Main extends Application {
         System.out.println("    1) Add an Election");
         System.out.println("    2) Add a Candidate");
         System.out.println("    3) Add a Politician");
-        System.out.println("----------");
+        System.out.println("----------------------------------------------------------------------");
         System.out.println("    4) Delete an Election");
         System.out.println("    5) Delete a Candidate");
         System.out.println("    6) Delete a Politician");
-        System.out.println("----------");
+        System.out.println("----------------------------------------------------------------------");
         System.out.println("    7) Update a Election");
         System.out.println("    8) Update a Candidate");
-        System.out.println("    9) Update a Polnitician");
-        System.out.println("    10) Update a Pallet");
-        System.out.println("----------");
-        System.out.println("    11) View All Stock");
-        System.out.println("    15) Interactively View Stock");
-        System.out.println("----------");
-        System.out.println("    16) Search for pallet");
-        System.out.println("----------");
-        System.out.println("    17) Save to XML");
-        System.out.println("    18) Load from XML");
-        System.out.println("----------");
+        System.out.println("    9) Update a Politician");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("    10) Search Elections by Type and/or Year");
+        System.out.println("    11) Search Politicians by Name, Party and/or Location");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("    12) Interactive view");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("    13) Save to XML");
+        System.out.println("    14) Load from XML");
+        System.out.println("----------------------------------------------------------------------");
         System.out.println("    0) Exit");
         return Utilities.readNextInt("==>>");
     }
@@ -65,60 +64,48 @@ public class Main extends Application {
                     addElection();
                     break;
                 case 2:
-                    addAisle();
+//                    addCandidate();
                     break;
                 case 3:
-                    addShelf();
+//                    addPolitician();
                     break;
                 case 4:
-                    addPallet();
+//                    deleteElection();
                     break;
                 case 5:
-                    smartAdd();
+//                    deleteCandidate();
                     break;
                 case 6:
-                    removeFloor();
+//                    deletePolitician();
                     break;
                 case 7:
-                    removeAisle();
+//                    updateElection();
                     break;
                 case 8:
-                    removeShelf();
+//                    updateCandidate();
                     break;
                 case 9:
-                    removePallet();
+//                    updatePolitician();
                     break;
                 case 10:
-                    updateFloor();
+//                    searchElections();
                     break;
                 case 11:
-                    updateAisle();
+//                    searchPoliticians();
                     break;
                 case 12:
-                    updateShelf();
+//                    interactiveView();
                     break;
                 case 13:
-                    updatePallet();
-                    break;
-                case 14:
-                    System.out.println(flrList.viewAllStock());
-                    break;
-                case 15:
-                    interactiveViewStock();
-                    break;
-                case 16:
-                    searchPallet();
-                    break;
-                case 17:
                     try {
-                        flrList.save();
+                        Elections.save();
                     } catch (Exception e) {
                         System.err.println("Error writing to file: " + e);
                     }
                     break;
-                case 18:
+                case 14:
                     try {
-                        flrList.load();
+                        Elections.load();
                     } catch (Exception e) {
                         System.err.println("Error reading from file: " + e);
                     }

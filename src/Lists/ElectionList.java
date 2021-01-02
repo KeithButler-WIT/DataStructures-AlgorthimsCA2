@@ -136,26 +136,25 @@ public class ElectionList<E> {
         return size()==0;
     }
 
-    // TODO: implement save/load
     /**
-     * loads the election from a .xml file
+     * loads the elections from a .xml file
      */
     @SuppressWarnings("unchecked")
     public void load() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());
-        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Election.xml"));
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Elections.xml"));
         head = (ElectionNode<E>) is.readObject();
         is.close();
     }
 
     /**
-     * saves the election to a .xml file
+     * saves the elections to a .xml file
      */
     public void save() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());
-        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Election.xml"));
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Elections.xml"));
         out.writeObject(head);
         out.close();
     }
