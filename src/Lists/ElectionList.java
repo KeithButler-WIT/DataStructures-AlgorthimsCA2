@@ -155,8 +155,48 @@ public class ElectionList<E> {
     }
 
     //Todo: search
+//    public String searchParty(String name){    //Returns only the first pallet found matching the input
+//        for(int i=0;i<=size();i++) {
+//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();
+//            for(int j=0;j<=aisle.size();j++) {
+//                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+//                for(int k=0;k<=shelf.size();k++){
+//                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+//                    for(int l=0;l<=pallet.size();l++){
+//                        if(pallet.getPalletAtIndex(l).getContents().getGoodsDescription().contains(name))   //changed .equals to .contains
+//                            return "Location in warehouse: "
+//                                    +"\nFloor Index: "+getIndex(getFloorAtIndex(i).getContents())   //Returns index
+//                                    +"\nAisle Identifier: "+aisle.getAisleAtIndex(j).getContents().getIdentifier()    //returns identifier not index
+//                                    +"\nShelf Number: "+shelf.getShelfAtIndex(k).getContents().getShelfNum()    //returns shelf number not index
+//                                    +"\nPallet Index: "+pallet.getIndex(pallet.getPalletAtIndex(l).getContents())   //Returns index
+//                                    +"\n\n"+pallet.getPalletAtIndex(l).getContents().toString();
+//                    }
+//                }
+//            }
+//        }
+//
+//        return "No pallet with that description found.";
+//    }
 
     //Todo: smartadd
+//    public void smartAdd(String goodsDescription, int quantity, Double minTemp, Double maxTemp, int width, int depth) {
+//        //4 for loops is the only way I could think of doing it.
+//        for(int i=0;i<=size();i++) {
+//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();
+//            if ((getFloorAtIndex(i).getContents().getTemperature() <= minTemp && getFloorAtIndex(i).getContents().getTemperature() >= maxTemp))
+//                i++;
+//            for(int j=0;j<=aisle.size();j++) {
+//                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+//                for(int k=0;k<=shelf.size();k++){
+//                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+////                    for(int l=0;l<=pallet.size();l++){
+//                    pallet.insertNext(new Pallet(goodsDescription, quantity, minTemp, maxTemp, width, depth));
+//                    break;
+////                    }
+//                }
+//            }
+//        }
+//    }
 
     //Todo: view
 //    public String viewAllStock(){    //Returns every object in list as a String

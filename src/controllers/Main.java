@@ -273,7 +273,7 @@ public class Main extends Application {
     //   Search/View Methods   //
     //-------------------------//
 
-//    public void searchPallet() {
+//    public void searchParty() {
 //        String name = Utilities.validNextLine("Input the name of a pallet: ");
 //        electionList.searchPallet(name);
 //    }
