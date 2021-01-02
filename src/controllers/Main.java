@@ -206,30 +206,30 @@ public class Main extends Application {
     // Added since last interview
     public void removeElection() {
         System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want to remove: ");
-        electionList.rmIndex(flrIndex);
+        int EleIndex = Utilities.readNextInt("Input the floors index you want to remove: ");
+        electionList.rmIndex(EleIndex);
         System.out.println("Floor Removed.");
     }
 
     // Added since last interview
     public void removeCandidate() {
         System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want to remove: ");
-        electionList.getObjectAtIndex(flrIndex).getCandidate().rmIndex(ailIndex);
+        int EleIndex = Utilities.readNextInt("Input the floors index you want to view: ");
+        System.out.println(electionList.getObjectAtIndex(EleIndex).getCandidate().printList());
+        int CandIndex = Utilities.readNextInt("Input the aisles index you want to remove: ");
+        electionList.getObjectAtIndex(EleIndex).getCandidate().rmIndex(CandIndex);
         System.out.println("Aisle Removed.");
     }
 
     // Added since last interview
     public void removePolitician() {
         System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getPolitician().printList());
-        int slfIndex = Utilities.readNextInt("Input the Shelf index you want to remove: ");
-        electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getPolitician().rmIndex(slfIndex);
+        int EleIndex = Utilities.readNextInt("Input the floors index you want to view: ");
+        System.out.println(electionList.getObjectAtIndex(EleIndex).getCandidate().printList());
+        int CandIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
+        System.out.println(electionList.getObjectAtIndex(EleIndex).getCandidate().getObjectAtIndex(CandIndex).getPolitician().printList());
+        int PoliIndex = Utilities.readNextInt("Input the Shelf index you want to remove: ");
+        electionList.getObjectAtIndex(EleIndex).getCandidate().getObjectAtIndex(CandIndex).getPolitician().rmIndex(PoliIndex);
         System.out.println("Shelf Removed.");
     }
 
@@ -252,11 +252,11 @@ public class Main extends Application {
     // Added since last interview
     public void updateCandidate() {
         System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want to update");
+        int EleIndex = Utilities.readNextInt("Input the floors index you want add too");
+        System.out.println(electionList.getObjectAtIndex(EleIndex).getCandidate().printList());
+        int CandIndex = Utilities.readNextInt("Input the aisles index you want to update");
         //Prompts the user to type variables
-        Candidate temp = electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getContents();
+        Candidate temp = electionList.getObjectAtIndex(EleIndex).getCandidate().getObjectAtIndex(CandIndex).getContents();
         temp.setTotalVotes(Utilities.readNextInt("Input the identifier"));
         temp.setPreviousParty(Utilities.validNextLine("Input the palletWidth"));
     }
@@ -284,20 +284,19 @@ public class Main extends Application {
     //-------------------------//
 
     // Added since last interview
-    public void searchPallet() {
-        String name = Utilities.validNextLine("Input the name of a pallet: ");
-        electionList.searchPallet(name);
-    }
+//    public void searchPallet() {
+//        String name = Utilities.validNextLine("Input the name of a pallet: ");
+//        electionList.searchPallet(name);
+//    }
 
     // Added since last interview
-    public void interactiveViewStock() {
-        System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().printList());
-        int slfIndex = Utilities.readNextInt("Input the Shelf index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
-
-    }
+//    public void interactiveViewStock() {
+//        System.out.println(electionList.printList());
+//        int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
+//        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
+//        int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
+//        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().printList());
+//        int slfIndex = Utilities.readNextInt("Input the Shelf index you want to view: ");
+//        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
+//    }
 }
