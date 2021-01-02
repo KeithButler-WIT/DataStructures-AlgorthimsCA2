@@ -20,16 +20,16 @@ public class ElectionList<E> {
         public Election<E> getContents() { return contents; }
         public void setContents(Election<E> c) { contents=c; }
 
-//        public CandidateList<C> getCandidate() {
-//            return candidate;
-//        }
-//
-//        //---candidate Methods---//
-//
-//        //Adds an candidate to the CandidateList
-//        public void addCandidate(String id,int width,int depth){
-//            candidate.addElement(new Candidate(id,width,depth));
-//        }
+        public CandidateList<C> getCandidate() {
+            return candidate;
+        }
+
+        //---candidate Methods---//
+
+        //Adds an candidate to the CandidateList
+        public void addCandidate(String id,int width,int depth){
+            candidate.addElement(new Candidate(id,width,depth));
+        }
     }
 
     //TODO: implement tail variable
@@ -152,6 +152,40 @@ public class ElectionList<E> {
             currNode = currNode.next;
         }
         return fullList;
+    }
+
+    //Todo: search
+
+    //Todo: smartadd
+
+    //Todo: view
+    public String viewAllStock(){    //Returns every object in list as a String
+        String str="Warehouse contains: \n";
+        if(head==null) return "Warehouse is empty.";    //FloorList is empty
+        for(int i=0;i<=size()-1;i++) {
+            //Assigns AisleList to a variable
+            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();   //Slightly improves readability later on
+            if(getFloorAtIndex(i)==null) str+="";
+            else str+="\nFloor Index: "+getIndex(getFloorAtIndex(i).getContents());  //Returns index;
+            for(int j=0;j<=aisle.size()-1;j++) {
+                //Assigns current ShelfList to a variable
+                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+                if(aisle.getAisleAtIndex(j)==null) str+="";
+                else str+="\n   Aisle Identifier: "+aisle.getAisleAtIndex(j).getContents().getIdentifier();    //returns identifier not index
+                for(int k=0;k<=shelf.size()-1;k++){
+                    //Assigns current PalletList to a variable
+                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+                    if(shelf.getShelfAtIndex(k)==null) str+="";
+                    else str+="\n       Shelf Number: "+shelf.getShelfAtIndex(k).getContents().getShelfNum();    //returns shelf number not index;
+                    for(int l=0;l<=pallet.size()-1;l++){
+                        if(pallet.getPalletAtIndex(l)==null) str+="";
+                        else str+="\n           Pallet Index: "+pallet.getIndex(pallet.getPalletAtIndex(l).getContents()); ;
+                    }
+                }
+            }
+        }
+
+        return str; //Final completed list of objects
     }
 
     /**
