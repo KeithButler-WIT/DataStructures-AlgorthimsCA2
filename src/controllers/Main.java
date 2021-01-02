@@ -1,14 +1,15 @@
 package controllers;
 
+import Lists.Candidate;
 import Lists.Election;
 import Lists.ElectionList;
+import Lists.Politician;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import utility.Utilities;
-import Lists.ElectionList;
 
 import java.util.Scanner;
 
@@ -72,43 +73,34 @@ public class Main extends Application {
                     addElection();
                     break;
                 case 2:
-                    addAisle();
+                    addCandidate();
                     break;
                 case 3:
-                    addShelf();
-                    break;
-                case 4:
-                    addPallet();
+                    addPolitician();
                     break;
                 case 5:
                     smartAdd();
                     break;
                 case 6:
-                    removeFloor();
+                    removeElection();
                     break;
                 case 7:
-                    removeAisle();
+                    removeCandidate();
                     break;
                 case 8:
-                    removeShelf();
-                    break;
-                case 9:
-                    removePallet();
+                    removePolitician();
                     break;
                 case 10:
-                    updateFloor();
+                    updateElection();
                     break;
                 case 11:
-                    updateAisle();
+                    updateCandiate();
                     break;
                 case 12:
-                    updateShelf();
-                    break;
-                case 13:
-                    updatePallet();
+                    updatePolitician();
                     break;
                 case 14:
-                    System.out.println(electionList.viewAllStock());
+//                    System.out.println(electionList.viewAllStock());
                     break;
                 case 15:
                     interactiveViewStock();
@@ -167,7 +159,7 @@ public class Main extends Application {
     }
 
     // Added since last interview
-    public void addAisle(){
+    public void addCandidate(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want add too: ");
         //Prompts the user to type variables
@@ -175,39 +167,19 @@ public class Main extends Application {
         int palletWidth = Utilities.readNextInt("Input the palletWidth: ");
         int palletDepth = Utilities.readNextInt("Input the palletDepth: ");
         // Uses the addPallet method in floorNode
-        electionList.getObjectAtIndex(flrIndex).addAisle(identifier,palletWidth,palletDepth); // Adds aisle with inputted variables
+        electionList.getObjectAtIndex(flrIndex).addCandidate(identifier,palletWidth,palletDepth); // Adds aisle with inputted variables
     }
 
     // Added since last interview
-    public void addShelf(){
+    public void addPolitician(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want add too: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to add too: ");
         //Prompts the user to type variables
         int num = Utilities.readNextInt("Input the shelf number: ");
         // Uses the addPallet method in aisleNode
-        electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).addShelf(num);
-    }
-
-    // Added since last interview
-    public void addPallet(){
-        System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want add too: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want add too: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
-        int slfIndex = Utilities.readNextInt("Input the Shelf index you want add too: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
-        //Prompts the user to type variables
-        String goodsDescription = Utilities.validNextLine("Input the goodsDescription: ");
-        int quantity = Utilities.readNextInt("Input the quantity: ");
-        Double minTemp = Utilities.readNextDouble("Input the minimum temperature: ");
-        Double maxTemp = Utilities.readNextDouble("Input the maximum temperature: ");
-        int width = Utilities.readNextInt("Input the width: ");
-        int depth = Utilities.readNextInt("Input the depth: ");
-        // Uses the addPallet method in shelfNode
-        electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).addPallet(goodsDescription,quantity,minTemp,maxTemp,width,depth);
+        electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).addPolitician(num);
     }
 
     // Added since last interview
@@ -227,7 +199,7 @@ public class Main extends Application {
     //--------------------//
 
     // Added since last interview
-    public void removeFloor(){
+    public void removeElection(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want to remove: ");
         electionList.rmIndex(flrIndex);
@@ -235,39 +207,25 @@ public class Main extends Application {
     }
 
     // Added since last interview
-    public void removeAisle(){
+    public void removeCandidate(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to remove: ");
-        electionList.getObjectAtIndex(flrIndex).getAisle().rmIndex(ailIndex);
+        electionList.getObjectAtIndex(flrIndex).getCandidate().rmIndex(ailIndex);
         System.out.println("Aisle Removed.");
     }
 
     // Added since last interview
-    public void removeShelf(){
+    public void removePolitician(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getShelf().printList());
         int slfIndex = Utilities.readNextInt("Input the Shelf index you want to remove: ");
-        electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().rmIndex(slfIndex);
+        electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getShelf().rmIndex(slfIndex);
         System.out.println("Shelf Removed.");
-    }
-
-    // Added since last interview
-    public void removePallet(){
-        System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
-        int slfIndex = Utilities.readNextInt("Input the Shelf index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
-        int pltIndex = Utilities.readNextInt("Input the pallet index you want to remove: ");
-        electionList.getFloorAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().rmIndex(pltIndex);
-        System.out.println("Pallet Removed.");
     }
 
     //--------------------//
@@ -275,7 +233,7 @@ public class Main extends Application {
     //--------------------//
 
     // Added since last interview
-    public void updateFloor(){
+    public void updateElection(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want to add too: ");
         //Prompts the user to type variables
@@ -286,50 +244,30 @@ public class Main extends Application {
     }
 
     // Added since last interview
-    public void updateAisle(){
+    public void updateCandiate(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to update");
         //Prompts the user to type variables
-        Aisle temp=electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getContents();
+        Candidate temp=electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getContents();
         temp.setIdentifier(Utilities.validNextLine("Input the identifier"));
         temp.setPalletWidth(Utilities.readNextInt("Input the palletWidth"));
         temp.setPalletDepth(Utilities.readNextInt("Input the palletDepth"));
     }
 
     // Added since last interview
-    public void updateShelf(){
+    public void updatePolitician(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getShelf().printList());
         int slfIndex = Utilities.readNextInt("Input the Shelf index you want to update");
         //Prompts the user to type variables
         // Uses the addPallet method in aisleNode
-        Shelf temp=electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getContents();
+        Politician temp=electionList.getObjectAtIndex(flrIndex).getCandidate().getObjectAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getContents();
         temp.setShelfNum(Utilities.readNextInt("Input the shelf number"));
-    }
-
-    // Added since last interview
-    public void updatePallet(){
-        System.out.println(electionList.printList());
-        int flrIndex = Utilities.readNextInt("Input the floors index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
-        int ailIndex = Utilities.readNextInt("Input the aisles index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
-        int slfIndex = Utilities.readNextInt("Input the Shelf index you want add too");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
-        int pltIndex = Utilities.readNextInt("Input the pallet index you want to update");
-        //Prompts the user to type variables
-        Pallet temp=electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().getPalletAtIndex(pltIndex).getContents();
-        temp.setGoodsDescription(Utilities.validNextLine("Input the shelf number"));
-        temp.setQuantity(Utilities.readNextInt("Input the shelf number"));
-        temp.setMinTemp(Utilities.readNextDouble("Input the shelf number"));
-        temp.setMaxTemp(Utilities.readNextDouble("Input the shelf number"));
-        temp.setWidth(Utilities.readNextInt("Input the shelf number"));
-        temp.setDepth(Utilities.readNextInt("Input the shelf number"));
     }
 
     //-------------------------//
@@ -346,10 +284,10 @@ public class Main extends Application {
     public void interactiveViewStock(){
         System.out.println(electionList.printList());
         int flrIndex = Utilities.readNextInt("Input the floors index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().printList());
         int ailIndex = Utilities.readNextInt("Input the aisles index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().printList());
         int slfIndex = Utilities.readNextInt("Input the Shelf index you want to view: ");
-        System.out.println(electionList.getObjectAtIndex(flrIndex).getAisle().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
+        System.out.println(electionList.getObjectAtIndex(flrIndex).getCandidate().getAisleAtIndex(ailIndex).getShelf().getShelfAtIndex(slfIndex).getPallet().printList());
 
     }

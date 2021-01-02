@@ -27,8 +27,8 @@ public class ElectionList<E> {
         //---candidate Methods---//
 
         //Adds an candidate to the CandidateList
-        public void addCandidate(String id,int width,int depth){
-            candidate.addElement(new Candidate(id,width,depth));
+        public void addCandidate(int totalVotes, String previousParty){
+            candidate.addElement(new Candidate(totalVotes,previousParty));
         }
     }
 
@@ -39,7 +39,7 @@ public class ElectionList<E> {
         nn.next=head; //make the nodes next point to what the head of the list is currently pointing to
         head=nn; //change the head so that it is now pointing to the newly created node
     }
-S
+
     public void addLast(Election<E> e){
         if(size()==0) {
             head=tail=new ElectionNode<>();
