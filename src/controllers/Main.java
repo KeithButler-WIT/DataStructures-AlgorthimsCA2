@@ -35,7 +35,7 @@ public class Main extends Application {
      *
      * @return the users menu choice
      */
-    private int mainMenu() // Added since last interview
+    private int mainMenu()
     {
         System.out.println("    1) Add an Election");
         System.out.println("    2) Add a Candidate");
@@ -79,7 +79,7 @@ public class Main extends Application {
                     addPolitician();
                     break;
                 case 5:
-                    smartAdd();
+//                    smartAdd();
                     break;
                 case 6:
                     removeElection();
@@ -103,10 +103,10 @@ public class Main extends Application {
 //                    System.out.println(electionList.viewAllStock());
                     break;
                 case 15:
-                    interactiveViewStock();
+//                    interactiveViewStock();
                     break;
                 case 16:
-                    searchPallet();
+//                    searchPallet();
                     break;
                 case 17:
                     try {
