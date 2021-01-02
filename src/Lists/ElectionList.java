@@ -15,21 +15,21 @@ public class ElectionList<E> {
         // Todo: implement previous variable
         public ElectionNode<E> next, previous;  //points to next node
         private Election<E> contents; //stores the actual object in the contents field
-//        private CandidateList<C> candidate=new CandidateList<>();
+        private CandidateList<C> candidate=new CandidateList<>();
 
         public Election<E> getContents() { return contents; }
         public void setContents(Election<E> c) { contents=c; }
 
-//        public CandidateList<C> getCandidate() {
-//            return candidate;
-//        }
-//
-//        //---candidate Methods---//
-//
-//        //Adds an candidate to the CandidateList
-//        public void addCandidate(String id,int width,int depth){
-//            candidate.addElement(new Candidate(id,width,depth));
-//        }
+        public CandidateList<C> getCandidate() {
+            return candidate;
+        }
+
+        //---candidate Methods---//
+
+        //Adds an candidate to the CandidateList
+        public void addCandidate(int totalVotes, String previousParty){
+            candidate.addElement(new Candidate(totalVotes,previousParty));
+        }
     }
 
     //TODO: implement tail variable
@@ -40,7 +40,7 @@ public class ElectionList<E> {
         head=nn; //change the head so that it is now pointing to the newly created node
     }
 
-    public void addLast(Election e){
+    public void addLast(Election<E> e){
         if(size()==0) {
             head=tail=new ElectionNode<>();
         }
@@ -53,7 +53,7 @@ public class ElectionList<E> {
     public String listAll(){
         String str="";
         if(isEmpty())
-            return "No Floors present";
+            return "No Elections present";
         for(int i=0;i<=size();i++) {
             str+=getObjectAtIndex(i).getContents().getType();
         }
@@ -154,7 +154,80 @@ public class ElectionList<E> {
         return fullList;
     }
 
-    // TODO: implement save/load
+    //Todo: search
+//    public String searchParty(String name){    //Returns only the first pallet found matching the input
+//        for(int i=0;i<=size();i++) {
+//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();
+//            for(int j=0;j<=aisle.size();j++) {
+//                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+//                for(int k=0;k<=shelf.size();k++){
+//                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+//                    for(int l=0;l<=pallet.size();l++){
+//                        if(pallet.getPalletAtIndex(l).getContents().getGoodsDescription().contains(name))   //changed .equals to .contains
+//                            return "Location in warehouse: "
+//                                    +"\nFloor Index: "+getIndex(getFloorAtIndex(i).getContents())   //Returns index
+//                                    +"\nAisle Identifier: "+aisle.getAisleAtIndex(j).getContents().getIdentifier()    //returns identifier not index
+//                                    +"\nShelf Number: "+shelf.getShelfAtIndex(k).getContents().getShelfNum()    //returns shelf number not index
+//                                    +"\nPallet Index: "+pallet.getIndex(pallet.getPalletAtIndex(l).getContents())   //Returns index
+//                                    +"\n\n"+pallet.getPalletAtIndex(l).getContents().toString();
+//                    }
+//                }
+//            }
+//        }
+//
+//        return "No pallet with that description found.";
+//    }
+
+    //Todo: smartadd
+//    public void smartAdd(String goodsDescription, int quantity, Double minTemp, Double maxTemp, int width, int depth) {
+//        //4 for loops is the only way I could think of doing it.
+//        for(int i=0;i<=size();i++) {
+//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();
+//            if ((getFloorAtIndex(i).getContents().getTemperature() <= minTemp && getFloorAtIndex(i).getContents().getTemperature() >= maxTemp))
+//                i++;
+//            for(int j=0;j<=aisle.size();j++) {
+//                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+//                for(int k=0;k<=shelf.size();k++){
+//                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+////                    for(int l=0;l<=pallet.size();l++){
+//                    pallet.insertNext(new Pallet(goodsDescription, quantity, minTemp, maxTemp, width, depth));
+//                    break;
+////                    }
+//                }
+//            }
+//        }
+//    }
+
+    //Todo: view
+//    public String viewAllStock(){    //Returns every object in list as a String
+//        String str="Warehouse contains: \n";
+//        if(head==null) return "Warehouse is empty.";    //FloorList is empty
+//        for(int i=0;i<=size()-1;i++) {
+//            //Assigns AisleList to a variable
+//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();   //Slightly improves readability later on
+//            if(getFloorAtIndex(i)==null) str+="";
+//            else str+="\nFloor Index: "+getIndex(getFloorAtIndex(i).getContents());  //Returns index;
+//            for(int j=0;j<=aisle.size()-1;j++) {
+//                //Assigns current ShelfList to a variable
+//                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
+//                if(aisle.getAisleAtIndex(j)==null) str+="";
+//                else str+="\n   Aisle Identifier: "+aisle.getAisleAtIndex(j).getContents().getIdentifier();    //returns identifier not index
+//                for(int k=0;k<=shelf.size()-1;k++){
+//                    //Assigns current PalletList to a variable
+//                    PalletList<Pallet> pallet=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf().getShelfAtIndex(k).getPallet();
+//                    if(shelf.getShelfAtIndex(k)==null) str+="";
+//                    else str+="\n       Shelf Number: "+shelf.getShelfAtIndex(k).getContents().getShelfNum();    //returns shelf number not index;
+//                    for(int l=0;l<=pallet.size()-1;l++){
+//                        if(pallet.getPalletAtIndex(l)==null) str+="";
+//                        else str+="\n           Pallet Index: "+pallet.getIndex(pallet.getPalletAtIndex(l).getContents()); ;
+//                    }
+//                }
+//            }
+//        }
+//
+//        return str; //Final completed list of objects
+//    }
+
     /**
      * loads the election from a .xml file
      */
