@@ -154,7 +154,6 @@ public class ElectionList<E> {
         return fullList;
     }
 
-    // TODO: implement save/load
     /**
      * loads the election from a .xml file
      */
