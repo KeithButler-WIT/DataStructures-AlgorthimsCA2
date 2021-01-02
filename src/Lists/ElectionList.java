@@ -136,25 +136,44 @@ public class ElectionList<E> {
         return size()==0;
     }
 
+    public  String printList()
+    {
+        ElectionNode<E> currNode = head;
+        String fullList = "LinkedList: \n";
+
+        if(currNode==null)
+            fullList="Empty List.";
+        // Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the data at current node
+            fullList += currNode.getContents();
+
+            // Go to next node
+            currNode = currNode.next;
+        }
+        return fullList;
+    }
+
+    // TODO: implement save/load
     /**
-     * loads the elections from a .xml file
+     * loads the election from a .xml file
      */
     @SuppressWarnings("unchecked")
     public void load() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());
-        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Elections.xml"));
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Election.xml"));
         head = (ElectionNode<E>) is.readObject();
         is.close();
     }
 
     /**
-     * saves the elections to a .xml file
+     * saves the election to a .xml file
      */
     public void save() throws Exception
     {
         XStream xstream = new XStream(new DomDriver());
-        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Elections.xml"));
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Election.xml"));
         out.writeObject(head);
         out.close();
     }
