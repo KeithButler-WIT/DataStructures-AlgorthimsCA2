@@ -6,13 +6,13 @@ public class CandidateList<C> {
     public class CandidateNode<C> {
         public CandidateNode<C> next, previous;  //points to next node
         private Candidate<C> contents; //stores the actual object in the contents field
-//        private CandidateList<C> candidate=new CandidateList<>();
+        private PoliticianList<P> politician=new PoliticianList<>();
 
         public Candidate<C> getContents() { return contents; }
         public void setContents(Candidate<C> c) { contents=c; }
 
         //Fixme: this needs to be changed
-        public PoliticianList<C> getPolitician() {
+        public PoliticianList<P> getPolitician() {
             return politician;
         }
 

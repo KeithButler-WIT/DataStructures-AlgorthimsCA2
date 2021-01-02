@@ -13,7 +13,7 @@ import Lists.ElectionList;
 import java.util.Scanner;
 
 public class Main extends Application {
-    ElectionList<E> electionList = new ElectionList<>();
+    ElectionList<Election> electionList = new ElectionList<>();
     private Scanner input;
 
     @Override
