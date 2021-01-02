@@ -1,5 +1,13 @@
 package Lists;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 public class ElectionList<E> {
     public ElectionNode<E> head,tail;
 
@@ -32,6 +40,26 @@ public class ElectionList<E> {
         head=nn; //change the head so that it is now pointing to the newly created node
     }
 
+    public void addLast(Election e){
+        if(size()==0) {
+            head=tail=new ElectionNode<>();
+        }
+        else {
+            tail.next=new ElectionNode<>();
+            tail=tail.next;
+        }
+    }
+
+    public String listAll(){
+        String str="";
+        if(isEmpty())
+            return "No Floors present";
+        for(int i=0;i<=size();i++) {
+            str+=getObjectAtIndex(i).getContents().getType();
+        }
+        return str;
+    }
+
     public int size(){ //Counts the total number of nodes
         ElectionNode<E> temp=head;
         int len=0;
@@ -54,6 +82,7 @@ public class ElectionList<E> {
         }
         return i;
     }
+
 
     //Returns location Node object at given index
     public ElectionNode<E> getObjectAtIndex(int index){
@@ -108,26 +137,26 @@ public class ElectionList<E> {
     }
 
     // TODO: implement save/load
-//    /**
-//     * loads the employees from a .xml file
-//     */
-//    @SuppressWarnings("unchecked")
-//    public void load() throws Exception
-//    {
-//        XStream xstream = new XStream(new DomDriver());
-//        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("warehouse.xml"));
-//        head = (FloorNode<F>) is.readObject();
-//        is.close();
-//    }
-//
-//    /**
-//     * saves the employees to a .xml file
-//     */
-//    public void save() throws Exception
-//    {
-//        XStream xstream = new XStream(new DomDriver());
-//        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("warehouse.xml"));
-//        out.writeObject(head);
-//        out.close();
-//    }
+    /**
+     * loads the election from a .xml file
+     */
+    @SuppressWarnings("unchecked")
+    public void load() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("Election.xml"));
+        head = (ElectionNode<E>) is.readObject();
+        is.close();
+    }
+
+    /**
+     * saves the election to a .xml file
+     */
+    public void save() throws Exception
+    {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("Election.xml"));
+        out.writeObject(head);
+        out.close();
+    }
 }
