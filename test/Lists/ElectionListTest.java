@@ -3,7 +3,7 @@ package Lists;
 import junit.framework.TestCase;
 
 public class ElectionListTest extends TestCase {
-    private ElectionList<> populatedElection,emptyElection = new ElectionList<>();
+    private ElectionList<Election> populatedElection,emptyElection = new ElectionList<>();
     private Election election1,election2,election3,election4;
 
     public void setUp() throws Exception {
