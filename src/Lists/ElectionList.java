@@ -15,12 +15,12 @@ public class ElectionList<E> {
         // Todo: implement previous variable
         public ElectionNode<E> next, previous;  //points to next node
         private Election<E> contents; //stores the actual object in the contents field
-        private CandidateList<C> candidate=new CandidateList<>();
+        private CandidateList<Candidate> candidate=new CandidateList<>();
 
         public Election<E> getContents() { return contents; }
         public void setContents(Election<E> c) { contents=c; }
 
-        public CandidateList<C> getCandidate() {
+        public CandidateList<Candidate> getCandidate() {
             return candidate;
         }
 
@@ -178,7 +178,7 @@ public class ElectionList<E> {
 //        return "No pallet with that description found.";
 //    }
 
-    //Todo: smartadd
+    //Todo: smart add
 //    public void smartAdd(String goodsDescription, int quantity, Double minTemp, Double maxTemp, int width, int depth) {
 //        //4 for loops is the only way I could think of doing it.
 //        for(int i=0;i<=size();i++) {

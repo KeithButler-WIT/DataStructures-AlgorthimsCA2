@@ -1,7 +1,7 @@
 package Lists;
 
 public class PoliticianList {
-    public PoliticianNode<P> head,tail;
+    public PoliticianNode<Politician> head,tail;
 
     //FIXME: fix the generics
     public class PoliticianNode<P> {
@@ -17,19 +17,19 @@ public class PoliticianList {
     // Todo: add fancy methods that do fancy things
 
     //TODO: implement tail variable
-    public void addElement(Politician<P> e) { //Add element to head of list
-        PoliticianNode<P> nn = new PoliticianNode<P>(); //create a new node
+    public void addElement(Politician<Politician> e) { //Add element to head of list
+        PoliticianNode<Politician> nn = new PoliticianNode<>(); //create a new node
         nn.setContents(e); //add the object to the contents
         nn.next=head; //make the nodes next point to what the head of the list is currently pointing to
         head=nn; //change the head so that it is now pointing to the newly created node
     }
 
-    public void addLast(Politician<P> e){
+    public void addLast(Politician<Politician> e){
         if(size()==0) {
-            head=tail=new PoliticianNode<P>();
+            head=tail=new PoliticianNode<>();
         }
         else {
-            tail.next=new PoliticianNode<P>();
+            tail.next=new PoliticianNode<>();
             tail=tail.next;
         }
     }
@@ -45,7 +45,7 @@ public class PoliticianList {
     }
 
     public int size(){ //Counts the total number of nodes
-        PoliticianNode<P> temp=head;
+        PoliticianNode<Politician> temp=head;
         int len=0;
         while(temp!=null){
             temp=temp.next;
@@ -55,11 +55,11 @@ public class PoliticianList {
     }
 
     //Returns location of object in list as int
-    public int getIndex(Politician<P> obj){
-        PoliticianNode<P> temp=head;
+    public int getIndex(Politician<Politician> obj){
+        PoliticianNode<Politician> temp=head;
         int i=0;
         while (temp!=null){
-            if(temp.getContents()==obj) //Checks if the node matches the inputted object
+            if(temp.getContents().equals(obj)) //Checks if the node matches the inputted object
                 return i;
             temp=temp.next; //Increments temp to next node in list
             i++;
