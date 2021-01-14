@@ -2,7 +2,7 @@ package Lists;
 
 import utility.Utilities;
 
-public classPolitician<P> {
+public class Politician<P> {
     private String name, dateOfBirth,
             party, // If any; Independent if not
             homeCounty, // E.g. Waterford
