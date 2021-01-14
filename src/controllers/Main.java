@@ -273,10 +273,10 @@ public class Main extends Application {
     //   Search/View Methods   //
     //-------------------------//
 
-//    public void searchParty() {
-//        String name = Utilities.validNextLine("Input the name of a pallet: ");
-//        electionList.searchPallet(name);
-//    }
+    public void searchParty() {
+        String name = Utilities.validNextLine("Input the name of a pallet: ");
+        electionList.searchKey(name);
+    }
 
 //    public void interactiveViewStock() {
 //        System.out.println(electionList.printList());

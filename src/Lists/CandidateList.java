@@ -6,15 +6,19 @@ public class CandidateList<C> {
     public class CandidateNode<C> {
         public CandidateNode<C> next, previous;  //points to next node
         private Candidate<C> contents; //stores the actual object in the contents field
-        private PoliticianList<P> politician=new PoliticianList<>();
+
 
         public Candidate<C> getContents() { return contents; }
         public void setContents(Candidate<C> c) { contents=c; }
 
+
+        private PoliticianList<Politician> politician = new PoliticianList<>();
+
         //Fixme: this needs to be changed
-        public PoliticianList<P> getPolitician() {
+        public PoliticianList<Politician> getPolitician() {
             return politician;
         }
+
 
         //---politician Methods---//
 
@@ -26,7 +30,7 @@ public class CandidateList<C> {
 
     //TODO: implement tail variable
     public void addElement(Candidate<C> e) { //Add element to head of list
-        CandidateNode<C> nn = new CandidateNode<C>(); //create a new node
+        CandidateNode<C> nn = new CandidateNode<>(); //create a new node
         nn.setContents(e); //add the object to the contents
         nn.next=head; //make the nodes next point to what the head of the list is currently pointing to
         head=nn; //change the head so that it is now pointing to the newly created node

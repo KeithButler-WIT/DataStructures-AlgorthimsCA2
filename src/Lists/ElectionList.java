@@ -56,6 +56,11 @@ public class ElectionList<E> {
             return "No Elections present";
         for(int i=0;i<=size();i++) {
             str+=getObjectAtIndex(i).getContents().getType();
+            str+="\t";
+            str+=getObjectAtIndex(i).getContents().getLocation();
+            str+=getObjectAtIndex(i).getContents().getDate();
+            str+=getObjectAtIndex(i).getContents().getSeatsWon();
+
         }
         return str;
     }
@@ -154,10 +159,10 @@ public class ElectionList<E> {
         return fullList;
     }
 
-    //Todo: search
-//    public String searchParty(String name){    //Returns only the first pallet found matching the input
+//    //Todo: search
+//    public String searchKey(String name){    //Returns only the first corresponding key found matching the input
 //        for(int i=0;i<=size();i++) {
-//            AisleList<Aisle> aisle=getFloorAtIndex(i).getAisle();
+//            ElectionList<Election> aisle= getElectionAtIndex(i).getAisle();
 //            for(int j=0;j<=aisle.size();j++) {
 //                ShelfList<Shelf> shelf=getFloorAtIndex(i).getAisle().getAisleAtIndex(j).getShelf();
 //                for(int k=0;k<=shelf.size();k++){
