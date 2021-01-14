@@ -111,6 +111,6 @@ public class ElectionListTest extends TestCase {
         assertEquals(newList2.getObjectAtIndex(0).getContents().toString(), populatedElection.getObjectAtIndex(0).getContents().toString());
         assertEquals(newList2.getObjectAtIndex(1).getContents().toString(), populatedElection.getObjectAtIndex(1).getContents().toString());
         //Checks if all child lists are saved/loaded correctly
-        //assertEquals(newList2.getObjectAtIndex(0).getAisle().getAisleAtIndex(0).getShelf().getShelfAtIndex(0).getPallet().getPalletAtIndex(0).getContents().toString(), populatedFloor.getFloorAtIndex(0).getAisle().getAisleAtIndex(0).getShelf().getShelfAtIndex(0).getPallet().getPalletAtIndex(0).getContents().toString());
+        assertEquals(newList2.getObjectAtIndex(0).getCandidate().getObjectAtIndex(0).getContents().toString(), populatedElection.getObjectAtIndex(0).getCandidate().getObjectAtIndex(0).getContents().toString());
     }
 }
