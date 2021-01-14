@@ -75,6 +75,8 @@ public class ElectionListTest extends TestCase {
     }
 
     public void testIsEmpty() {
+        assertTrue(emptyElection.isEmpty());
+        assertFalse(populatedElection.isEmpty());
     }
 
     public void testPrintList() {
